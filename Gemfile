@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in clouds_and_dragons.gemspec
+gem 'right_api_objects', git: 'git@github.com:rightscale/right_api_objects.git', branch: 'hackathon_rem_20140909'
+
 gemspec

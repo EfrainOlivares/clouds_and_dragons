@@ -1,5 +1,7 @@
-require "clouds_and_dragons/version"
+require 'clouds_and_dragons/version'
+require 'trollop'
 
 module CloudsAndDragons
-  # Your code goes here...
+  def self.start(args)
+  end
 end
