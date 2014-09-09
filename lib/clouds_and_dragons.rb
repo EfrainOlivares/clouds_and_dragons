@@ -1,11 +1,7 @@
 require 'clouds_and_dragons/version'
-require 'thor'
+require 'trollop'
 
 module CloudsAndDragons
-  class Runner < Thor
-    desc 'moo', 'Make a cow noise'
-    def moo
-      puts 'MOOOOOO'
-    end
+  def self.start(args)
   end
 end

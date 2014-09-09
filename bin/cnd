@@ -2,4 +2,4 @@
 
 require 'clouds_and_dragons'
 
-CloudsAndDragons::Runner.start(ARGV)
+CloudsAndDragons.start(ARGV)
