@@ -1,9 +1,9 @@
 module CloudsAndDragons
   class Deployments < CLI
-    def parse
-      Trollop::options do
+    def parser
+      Trollop::Parser.new do
         opt :name, 'Name of the deployment', :type => :string
-        stop_on %w{instances tags}
+        stop_on %w{volumes instances tags}
       end
     end
   end
