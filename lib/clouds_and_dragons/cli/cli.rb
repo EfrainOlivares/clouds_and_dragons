@@ -9,14 +9,11 @@ module CloudsAndDragons
       @@implementations[subclass.name.split('::').last.downcase] = subclass
     end
 
-    def self.parse
-      new.parse
+    def self.parser
+      new.parser
     end
 
-    def parse
-      Trollop::options do
-        stop_on %w{login list create destroy}
-      end
+    def parser
     end
   end
 end
@@ -24,3 +21,4 @@ end
 require 'clouds_and_dragons/cli/deployments'
 require 'clouds_and_dragons/cli/instances'
 require 'clouds_and_dragons/cli/tags'
+require 'clouds_and_dragons/cli/volumes'

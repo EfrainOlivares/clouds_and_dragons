@@ -1,9 +1,9 @@
 module CloudsAndDragons
   class Instances < CLI
-    def parse
-      Trollop::options do
+    def parser
+      Trollop::Parser.new do
         opt :name, 'Name of the instance', :type => :string
-        stop_on %w{tags}
+        stop_on %w{volumes tags}
       end
     end
   end
