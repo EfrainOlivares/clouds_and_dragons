@@ -31,4 +31,4 @@ TODO: Write usage instructions here
 5. Create a new Pull Request
 
 ### Testing
-To test this application, install bats (https://github.com/sstephenson/bats) and run `bats bash test/*.bats`
+To test this application, install bats (https://github.com/sstephenson/bats) and run `bats test/*.bats`
