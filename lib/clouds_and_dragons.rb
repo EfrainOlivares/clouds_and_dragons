@@ -1,5 +1,4 @@
 require 'clouds_and_dragons/version'
-require 'clouds_and_dragons/cli/cli'
 require 'clouds_and_dragons/resources/base'
 require 'clouds_and_dragons/actions/base'
 
@@ -7,6 +6,7 @@ require 'trollop'
 require 'yaml'
 require 'logger'
 require 'right_api_objects'
+require 'pry'
 
 module CloudsAndDragons
   def self.start(args)
@@ -14,34 +14,36 @@ module CloudsAndDragons
     # Initialize the API connection
     # so @@client is available
     self.connect
-    sub_cmds = collect_sub_commands(args)
+    resource_names = collect_resource_names(args)
 
-    if sub_cmds.empty?
+    if resource_names.empty?
       post_help
       exit
     end
 
     # main_command = list for example
-    main_command = sub_cmds.shift
+    main_command = args.shift
 
-    previous_resource = 'something'
-    sub_cmds.each do |sub_cmd|
-      parser = CLI[sub_cmd].parser
-      parser.stop_on(nil) if sub_cmds.last == sub_cmd
-      options = parser.parse
+    previous_resource = nil
+    resource_names.each do |resource|
+      parser = Resources[resource].parser
+      parser.stop_on([]) if resource_names.last == resource
+      options = parser.parse(args)
 
       #TODO: Uncomment this to proceed
-      #previous_resource = Resources::Base[sub_cmd].get_object(previous_resource, options)
+      #previous_resource = Resources[resource].get_object(previous_resource, options)
     end
 
     #TODO: Uncomment this to proceed
     #Actions::Base[main_command].perform(previous_resource)
   end
 
-  def self.collect_sub_commands(argv)
-    argv.reject { |arg| arg =~ /^-/ }
+  # Collects the resource names from ARGV.
+  #
+  def self.collect_resource_names(argv)
+    argv.select { |arg| Resources.collections.include?(arg) }
   end
-  
+
   def self.connect
     # This will be replaced by the "initial" connection to the api.
     options = YAML.load_file(File.expand_path("../../config/login.yml", __FILE__))

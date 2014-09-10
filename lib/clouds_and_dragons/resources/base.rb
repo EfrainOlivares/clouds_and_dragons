@@ -1,13 +1,33 @@
 module CloudsAndDragons
   module Resources
+    def self.[](implementation)
+      @@implementations[implementation]
+    end
+
+    def self.register(subclass)
+      @@implementations ||= {}
+      @@implementations[subclass.name.split('::').last.downcase] = subclass
+    end
+
+    def self.collections
+      @@implementations.keys
+    end
+
     class Base
-      def self.[](implementation)
-        @@implementations[implementation]
+      def self.inherited(subclass)
+        Resources.register(subclass)
       end
 
-      def self.inherited(subclass)
-        @@implementations ||= {}
-        @@implementations[subclass.name.split('::').last.downcase] = subclass
+      def self.parser
+        new.parser
+      end
+
+      def type
+        self.class.name.split('::').last.downcase
+      end
+
+      def stop_words
+        Resources.collections - [type]
       end
     end
   end
