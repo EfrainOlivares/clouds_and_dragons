@@ -30,12 +30,10 @@ module CloudsAndDragons
       parser.stop_on([]) if resource_names.last == resource
       options = parser.parse(args)
 
-      #TODO: Uncomment this to proceed
-      #previous_resource = Resources[resource].get_object(previous_resource, options)
+      previous_resource = Resources[resource].get_object(previous_resource, options)
     end
 
-    #TODO: Uncomment this to proceed
-    #Actions::Base[main_command].perform(previous_resource)
+    Actions::Base[main_command].perform(previous_resource)
   end
 
   # Collects the resource names from ARGV.
@@ -48,7 +46,7 @@ module CloudsAndDragons
     # This will be replaced by the "initial" connection to the api.
     options = YAML.load_file(File.expand_path("../../config/login.yml", __FILE__))
     options.merge!(:logger => Logger.new(STDERR))
-    @@client ||= RightApiObjects::Client.new(options)
+    $client ||= RightApiObjects::Client.new(options)
   end
 
   def self.post_help
