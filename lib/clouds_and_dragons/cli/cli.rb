@@ -18,7 +18,9 @@ module CloudsAndDragons
   end
 end
 
+require 'clouds_and_dragons/cli/arrays'
 require 'clouds_and_dragons/cli/deployments'
 require 'clouds_and_dragons/cli/servers'
+require 'clouds_and_dragons/cli/snapshots'
 require 'clouds_and_dragons/cli/tags'
 require 'clouds_and_dragons/cli/volumes'
