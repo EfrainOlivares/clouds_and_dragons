@@ -13,3 +13,4 @@
 *.a
 mkmf.log
 config/login.yml
+.*.sw[a-z]
