@@ -20,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Copy the config/login.yml.example file to config/login.yml, choose an autherntication method 
+and enter the requested data (making sure to comment out the unused methoods).
 
 ## Contributing
 
@@ -31,4 +32,5 @@ TODO: Write usage instructions here
 5. Create a new Pull Request
 
 ### Testing
-To test this application, install bats (https://github.com/sstephenson/bats) and run `bats test/*.bats`
+
+To test cnr, install bats (https://github.com/sstephenson/bats) and run `bats test/*.bats`
