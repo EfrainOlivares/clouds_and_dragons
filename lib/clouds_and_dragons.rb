@@ -15,6 +15,12 @@ module CloudsAndDragons
     # so @@client is available
     self.connect
     sub_cmds = collect_sub_commands(args)
+
+    if sub_cmds.empty?
+      post_help
+      exit
+    end
+
     # main_command = list for example
     main_command = sub_cmds.shift
 
@@ -41,5 +47,14 @@ module CloudsAndDragons
     options = YAML.load_file(File.expand_path("../../config/login.yml", __FILE__))
     options.merge!(:logger => Logger.new(STDERR))
     @@client ||= RightApiObjects::Client.new(options)
+  end
+
+  def self.post_help
+    help_banner = "clouds_and_dragons  Usage:  cnd <commmand> <resource> <filter-flag>\n" +
+                  "\n" +
+                  "Available commands:\n" +
+                  "list       # list resources\n" +
+                  "           # example: bundle exec cnd list deployments --name='test_deployment\n"
+    puts help_banner
   end
 end
