@@ -4,7 +4,9 @@ require 'clouds_and_dragons/resources/base'
 require 'clouds_and_dragons/actions/base'
 
 require 'trollop'
-require 'pry'
+require 'yaml'
+require 'logger'
+require 'right_api_objects'
 
 module CloudsAndDragons
   def self.start(args)
