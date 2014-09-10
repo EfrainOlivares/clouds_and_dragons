@@ -19,5 +19,5 @@ require 'clouds_and_dragons/resources/login'
 require 'clouds_and_dragons/resources/servers'
 require 'clouds_and_dragons/resources/snapshots'
 require 'clouds_and_dragons/resources/tags'
-require 'clouds_and_dragons/resources/volume'
+require 'clouds_and_dragons/resources/volumes'
 
