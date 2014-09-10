@@ -7,7 +7,7 @@ require 'trollop'
 
 module CloudsAndDragons
   def self.start(args)
-    sub_cmds = collect_sub_commands(ARGV)
+    sub_cmds = collect_sub_commands(args)
     # main_command = list for example
     main_command = sub_cmds.shift
 
