@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 @test "list instance tags 1" {
-      run cnd list servers --name="moo-93" tags
+      run bundle exec cnd list servers --name="moo-93" tags
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "ec2:Name=moo-93.test.rightscale.com" ]
@@ -9,7 +9,7 @@
 }
 
 @test "list instance tags 2" {
-      run cnd list deployments --name="moo:shard93" servers --name="moo-93" tags
+      run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" tags
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "ec2:Name=moo-93.test.rightscale.com" ]
@@ -17,28 +17,28 @@
 }
 
 @test "list instance tags 3" {
-      run cnd list deployments --name="moo:shard93" servers --name="moo-93" tag --name="branch"
+      run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" tag --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "Error: server moo-93.test.rightscale.com has no tags named branch" ]
 }
 
 @test "list instance tags 4" {
-      run cnd list deployments --name="moo:shard93" servers --name="moo93-stats" tag --name="branch"
+      run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo93-stats" tag --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "branch:right_site=release_candidate5.3" ]
 }
 
 @test "list deployment tags 1" {
-      run cnd list deployments --name="moo:shard93" tags
+      run bundle exec cnd list deployments --name="moo:shard93" tags
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "Error: deployment moo:shard93 has no tags" ]
 }
 
 @test "list deployment tags 2" {
-      run cnd list deployments --name="moo:shard93" tags --name="branch"
+      run bundle exec cnd list deployments --name="moo:shard93" tags --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "rror: deployment moo:shard93 has no tags named branch" ]
