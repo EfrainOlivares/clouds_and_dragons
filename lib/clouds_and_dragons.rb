@@ -8,6 +8,10 @@ require 'pry'
 
 module CloudsAndDragons
   def self.start(args)
+
+    # Initialize the API connection
+    # so @@client is available
+    self.connect
     sub_cmds = collect_sub_commands(args)
     # main_command = list for example
     main_command = sub_cmds.shift
@@ -28,5 +32,12 @@ module CloudsAndDragons
 
   def self.collect_sub_commands(argv)
     argv.reject { |arg| arg =~ /^-/ }
+  end
+  
+  def self.connect
+    # This will be replaced by the "initial" connection to the api.
+    options = YAML.load_file(File.expand_path("../../config/login.yml", __FILE__))
+    options.merge!(:logger => Logger.new(STDERR))
+    @@client ||= RightApiObjects::Client.new(options)
   end
 end
