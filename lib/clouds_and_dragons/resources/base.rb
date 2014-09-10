@@ -14,5 +14,5 @@ module CloudsAndDragons
 end
 
 require 'clouds_and_dragons/resources/deployments'
-require 'clouds_and_dragons/resources/instances'
+require 'clouds_and_dragons/resources/servers'
 require 'clouds_and_dragons/resources/tags'

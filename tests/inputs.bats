@@ -1,34 +1,34 @@
 #!/usr/bin/env bats
 
-@test "list instance inputs 1" {
+@test "list server inputs 1" {
       run bundle exec cnd list servers --name="moo-93" --inputs
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
       [ "${lines[1]}" = "MAINTENANCE_CONTENTS => text:maintenance.html" ]
 }
 
-@test "list instance inputs 2" {
+@test "list server inputs 2" {
       run bundle exec cnd list servers --name="moo-93" --inputs --inputs-next
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
       [ "${lines[1]}" = "MAINTENANCE_CONTENTS => text:maintenance.html" ]
 }
 
-@test "list instance inputs 3" {
+@test "list server inputs 3" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" inputs
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
       [ "${lines[1]}" = "MAINTENANCE_CONTENTS => text:maintenance.html" ]
 }
 
-@test "list instance inputs 4" {
+@test "list server inputs 4" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" inputs --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
       [ "${lines[1]}" = "Error: server moo-93.test.rightscale.com has no inputs named branch" ]
 }
 
-@test "list instance inputs 5" {
+@test "list server inputs 5" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo93-stats" inputs --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
@@ -36,7 +36,7 @@
       [ "${lines[2]}" = "ST_AUDITOR_BRANCH -> text:release_candidate5.3" ]
 }
 
-@test "list instance inputs 6" {
+@test "list server inputs 6" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo93-stats" inputs-next --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]

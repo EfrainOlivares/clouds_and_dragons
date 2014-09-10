@@ -19,6 +19,6 @@ module CloudsAndDragons
 end
 
 require 'clouds_and_dragons/cli/deployments'
-require 'clouds_and_dragons/cli/instances'
+require 'clouds_and_dragons/cli/servers'
 require 'clouds_and_dragons/cli/tags'
 require 'clouds_and_dragons/cli/volumes'

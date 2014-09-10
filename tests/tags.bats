@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-@test "list instance tags 1" {
+@test "list server tags 1" {
       run bundle exec cnd list servers --name="moo-93" tags
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
@@ -8,7 +8,7 @@
       [ "${lines[2]}" = "info:api_id=15372569003" ]      
 }
 
-@test "list instance tags 2" {
+@test "list server tags 2" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" tags
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
@@ -16,14 +16,14 @@
       [ "${lines[2]}" = "info:api_id=15372569003" ]      
 }
 
-@test "list instance tags 3" {
+@test "list server tags 3" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo-93" tag --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
       [ "${lines[1]}" = "Error: server moo-93.test.rightscale.com has no tags named branch" ]
 }
 
-@test "list instance tags 4" {
+@test "list server tags 4" {
       run bundle exec cnd list deployments --name="moo:shard93" servers --name="moo93-stats" tag --name="branch"
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Tags:" ]
