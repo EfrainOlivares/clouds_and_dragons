@@ -31,11 +31,11 @@ module CloudsAndDragons
       options = parser.parse
 
       #TODO: Uncomment this to proceed
-      #previous_resource = Resources[sub_cmd].get_object(previous_resource, options)
+      #previous_resource = Resources::Base[sub_cmd].get_object(previous_resource, options)
     end
 
     #TODO: Uncomment this to proceed
-    #Actions[main_command].perform(previous_resource)
+    #Actions::Base[main_command].perform(previous_resource)
   end
 
   def self.collect_sub_commands(argv)
