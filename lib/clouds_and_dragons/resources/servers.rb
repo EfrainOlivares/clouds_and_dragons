@@ -1,6 +1,6 @@
 module CloudsAndDragons
   module Resources
-    class Instances < Base
+    class Servers < Base
       def self.get_object(resource, options)
       end
     end
