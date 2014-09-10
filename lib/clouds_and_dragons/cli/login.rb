@@ -7,7 +7,7 @@ module CloudsAndDragons
         opt :name, 'Name of the login', type => :string
         opt :password, 'Users password', type => :string
         opt :username, 'Users username', type => :string
-        stop_on %w{tags}
+        stop_on %w{arrays cli deployments inputsnext inputs login servers snapshots tags volumes}
       end
     end
   end

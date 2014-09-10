@@ -15,6 +15,8 @@ end
 
 require 'clouds_and_dragons/resources/arrays'
 require 'clouds_and_dragons/resources/deployments'
+require 'clouds_and_dragons/resources/inputs'
+require 'clouds_and_dragons/resources/inputsnext'
 require 'clouds_and_dragons/resources/login'
 require 'clouds_and_dragons/resources/servers'
 require 'clouds_and_dragons/resources/snapshots'

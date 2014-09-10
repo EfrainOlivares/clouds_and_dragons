@@ -13,4 +13,8 @@ module CloudsAndDragons
   end
 end
 
+require 'clouds_and_dragons/actions/add'
+require 'clouds_and_dragons/actions/delete'
 require 'clouds_and_dragons/actions/list'
+require 'clouds_and_dragons/actions/modify'
+require 'clouds_and_dragons/actions/set'
