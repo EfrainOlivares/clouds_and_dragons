@@ -20,6 +20,7 @@
       [ "${lines[0]}" = "Arrays:" ]}
       [ "${lines[1]}" = "Core93" ]}
       [ "${lines[2]}" = "Core94" ]}
+}
 
 @test "list arrays 4" {
       run bundle exec cnd list deployments arrays --name="Core93"

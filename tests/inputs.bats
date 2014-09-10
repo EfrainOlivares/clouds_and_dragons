@@ -1,7 +1,7 @@
 #!/usr/bin/env bats
 
 @test "list instance inputs 1" {
-      run bundle exec cnd list servers --name="moo-93 --inputs
+      run bundle exec cnd list servers --name="moo-93" --inputs
       [ "$status" -eq 0 ]
       [ "${lines[0]}" = "Inputs:" ]
       [ "${lines[1]}" = "MAINTENANCE_CONTENTS => text:maintenance.html" ]
