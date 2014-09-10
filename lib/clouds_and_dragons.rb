@@ -31,7 +31,7 @@ module CloudsAndDragons
       options = parser.parse
 
       #TODO: Uncomment this to proceed
-      #previous_resource = Resouces[sub_cmd].get_object(previous_resource, options)
+      #previous_resource = Resources[sub_cmd].get_object(previous_resource, options)
     end
 
     #TODO: Uncomment this to proceed
