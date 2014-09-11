@@ -47,9 +47,8 @@ module CloudsAndDragons
   def self.connect
     # This will be replaced by the "initial" connection to the api.
     options = YAML.load_file(File.expand_path("../../config/login.yml", __FILE__))
-    options.merge!(:logger => Logger.new(STDERR))
+    options.merge!(timeout: nil)
     $client ||= RightApiObjects::Client.new(options)
-    RestClient.log = nil
   end
 
   def self.post_help
