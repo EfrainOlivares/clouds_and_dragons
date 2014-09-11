@@ -2,7 +2,11 @@ module CloudsAndDragons
   module Resources
     class Deployments < Base
       def self.get_object(resource, options)
-        $client.deployments(:name => options[:name])
+        if options[:name]
+          $client.deployments(name: options[:name])
+        else
+          $client.deployments
+        end
       end
 
       def parser

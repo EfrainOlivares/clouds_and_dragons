@@ -4,7 +4,11 @@ module CloudsAndDragons
       def self.get_object(resources, options)
         servers = []
         resources.each do |resource|
-          servers += resource.servers
+          if options[:name]
+            servers += resource.servers(name: options[:name])
+          else
+            servers += resource.servers
+          end
         end
         servers
       end
