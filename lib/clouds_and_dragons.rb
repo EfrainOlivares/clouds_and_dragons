@@ -11,15 +11,17 @@ require 'pry'
 module CloudsAndDragons
   def self.start(args)
 
-    # Initialize the API connection
-    # so @@client is available
-    self.connect
     resource_names = collect_resource_names(args)
 
+    # Should post help immedicatly if no args given.
     if resource_names.empty?
       post_help
       exit
     end
+
+    # Initialize the API connection
+    # so @@client is available
+    self.connect
 
     # main_command = list for example
     main_command = args.shift
