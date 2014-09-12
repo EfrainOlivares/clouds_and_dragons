@@ -10,10 +10,11 @@ require 'pry'
 
 module CloudsAndDragons
   def self.start(args)
-
+debug = false
     resource_names = collect_resource_names(args)
 
     # Should post help immedicatly if no args given.
+puts "resource_names = #{resource_names.inspect}" if debug
     if resource_names.empty?
       post_help
       exit
@@ -25,13 +26,13 @@ module CloudsAndDragons
 
     # main_command = list for example
     main_command = args.shift
-
+puts "main_command is #{main_command.inspect}" if debug
     previous_resource = nil
     resource_names.each do |resource|
       parser = Resources[resource].parser
       parser.stop_on([]) if resource_names.last == resource
       options = parser.parse(args)
-
+puts "previous_resource = #{previous_resource.inspect}" if debug
       previous_resource = Resources[resource].get_object(previous_resource, options)
     end
 
