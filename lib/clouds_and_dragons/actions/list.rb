@@ -3,8 +3,7 @@ module CloudsAndDragons
     class List < Base
       def self.perform(resources)
          resources.each do |item|
-           puts item.name
-           puts item.href
+           puts "#{item.name}\t#{item.href}"
          end
       end
     end
